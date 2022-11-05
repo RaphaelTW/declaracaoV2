@@ -38,15 +38,15 @@
                 <div class="row">
                     <div class="col-md-5 mb-4">
                         <div class="form-outline">
-                            <input type="text" id="form3Example1" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example1">CPF/CNPJ</label>
+                            <input type="text" id="doc" class="form-control bg-light" required/>
+                            <label class="form-label" for="doc">CPF/CNPJ</label>
                         </div>
                     </div>
 
                     <div class="col-md-7 mb-4">
                         <div class="form-outline">
-                            <input type="text" id="form3Example2" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example2">Nome</label>
+                            <input type="text" id="remetente" class="form-control bg-light" required/>
+                            <label class="form-label" for="remetente">Remetente</label>
                         </div>
                     </div>
                 </div>
@@ -54,15 +54,15 @@
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example3" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example3">CEP</label>
+                            <input type="text" id="cep" class="form-control bg-light" maxlength="8" required/>
+                            <label class="form-label" for="cep">CEP</label>
                         </div>
                     </div>
 
                     <div class="col-md-8 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example4" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example4">Endereço</label>
+                            <input type="text" id="endereco" class="form-control bg-light" required/>
+                            <label class="form-label" for="endereco">Endereço</label>
                         </div>
                     </div>
                 </div>
@@ -70,35 +70,49 @@
                 <div class="row">
                     <div class="col-md-3 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example3" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example3">Numero</label>
+                            <input type="text" id="numero" class="form-control bg-light" required/>
+                            <label class="form-label" for="numero">Numero</label>
                         </div>
                     </div>
 
                     <div class="col-md-3 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example4" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example4">Complemento</label>
+                            <input type="text" id="complemento" class="form-control bg-light" required/>
+                            <label class="form-label" for="complemento">Complemento</label>
                         </div>
                     </div>
 
                     <div class="col-md-4 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example3" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example3">Cidade</label>
+                            <input type="text" id="cidade" class="form-control bg-light" required/>
+                            <label class="form-label" for="cidade">Cidade</label>
                         </div>
                     </div>
 
                     <div class="col-md-2 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example4" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example4">Estado</label>
+                            <input type="text" id="uf" class="form-control bg-light" required/>
+                            <label class="form-label" for="uf">Estado</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline mb-4">
+                            <input type="text" id="contato" class="form-control bg-light" required/>
+                            <label class="form-label" for="contato">Contato</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline mb-4">
+                            <input type="tel" id="tel" class="form-control bg-light" required/>
+                            <label class="form-label" for="tel">Telefone/Celular</label>
                         </div>
                     </div>
 
                     <div class="form-check form-switch mx-3">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Deseja salvar o formulário?</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="Check">
+                        <label class="form-check-label" for="Check">Deseja salvar o formulário?</label>
                     </div>
                 </div>
 
@@ -112,15 +126,15 @@
                 <div class="row">
                     <div class="col-md-5 mb-4">
                         <div class="form-outline">
-                            <input type="text" id="form3Example1" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example1">CPF/CNPJ</label>
+                            <input type="text" id="doc1" class="form-control bg-light" required/>
+                            <label class="form-label" for="doc1">CPF/CNPJ</label>
                         </div>
                     </div>
 
                     <div class="col-md-7 mb-4">
                         <div class="form-outline">
-                            <input type="text" id="form3Example2" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example2">Nome</label>
+                            <input type="text" id="destinatario" class="form-control bg-light" required/>
+                            <label class="form-label" for="destinatario">Destinatário</label>
                         </div>
                     </div>
                 </div>
@@ -128,15 +142,15 @@
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example3" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example3">CEP</label>
+                            <input type="text" id="cep1" class="form-control bg-light" required/>
+                            <label class="form-label" for="cep1">CEP</label>
                         </div>
                     </div>
 
                     <div class="col-md-8 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example4" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example4">Endereço</label>
+                            <input type="text" id="endereco2" class="form-control bg-light" required/>
+                            <label class="form-label" for="endereco2">Endereço</label>
                         </div>
                     </div>
                 </div>
@@ -144,35 +158,49 @@
                 <div class="row">
                     <div class="col-md-3 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example3" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example3">Numero</label>
+                            <input type="text" id="numero2" class="form-control bg-light" required/>
+                            <label class="form-label" for="numero2">Numero</label>
                         </div>
                     </div>
 
                     <div class="col-md-3 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example4" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example4">Complemento</label>
+                            <input type="text" id="complemento2" class="form-control bg-light" required/>
+                            <label class="form-label" for="complemento2">Complemento</label>
                         </div>
                     </div>
 
                     <div class="col-md-4 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example3" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example3">Cidade</label>
+                            <input type="text" id="cidade2" class="form-control bg-light" required/>
+                            <label class="form-label" for="cidade2">Cidade</label>
                         </div>
                     </div>
 
                     <div class="col-md-2 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example4" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example4">Estado</label>
+                            <input type="text" id="uf2" class="form-control bg-light" required/>
+                            <label class="form-label" for="uf2">Estado</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <div class="form-outline mb-4">
+                            <input type="text" id="contato2" class="form-control bg-light" required/>
+                            <label class="form-label" for="contato2">Contato</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 mb-4">
+                        <div class="form-outline mb-4">
+                            <input type="tel" id="telefone2" class="form-control bg-light" maxlength="15" required/>
+                            <label class="form-label" for="telefone2">Telefone/Celular</label>
                         </div>
                     </div>
 
                     <div class="form-check form-switch mx-3">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Deseja salvar o formulário?</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="Check2">
+                        <label class="form-check-label" for="Check2">Deseja salvar o formulário?</label>
                     </div>
                 </div>
 
@@ -187,15 +215,15 @@
                     <h4>Conteúdo</h4>
                     <div class="col-md-6 mb-4">
                         <div class="form-outline">
-                            <input type="text" id="form3Example1" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example1">ID do Produto</label>
+                            <input type="text" id="idProduct" class="form-control bg-light" required/>
+                            <label class="form-label" for="idProduct">ID do Produto</label>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-4">
                         <div class="form-outline">
-                            <input type="text" id="form3Example2" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example2">Centro de custo</label>
+                            <input type="text" id="cCusto" class="form-control bg-light" required/>
+                            <label class="form-label" for="cCusto">Centro de custo</label>
                         </div>
                     </div>
                 </div>
@@ -203,22 +231,22 @@
                 <div class="row">
                     <div class="col-md-6 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example3" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example3">Conteúdo do pacote</label>
+                            <input type="text" id="content" class="form-control bg-light" required/>
+                            <label class="form-label" for="content">Conteúdo do pacote</label>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example4" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example4">Quantidade de itens enviados</label>
+                            <input type="text" id="quantity" class="form-control bg-light" required/>
+                            <label class="form-label" for="quantity">Quantidade de itens enviados</label>
                         </div>
                     </div>
 
                     <div class="col-md-12 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="form3Example4" class="form-control bg-light"/>
-                            <label class="form-label" for="form3Example4">Valor (R$)</label>
+                            <input type="text" id="value" class="form-control bg-light" required/>
+                            <label class="form-label" for="value">Valor (R$)</label>
                         </div>
                     </div>
                 </div>
