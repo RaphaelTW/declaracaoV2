@@ -2,22 +2,30 @@
 <html lang="PT-BR">
 
 <head>
-    <meta charset="UTF-8" dir="ltr">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" dir="ltr"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta name="description" content="Via Expressa">
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="description" content="Via Expressa"/>
 
     <title>Formulário</title>
 
     <!-- [Bootstrap] -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"/>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"/>
 
     <!-- [MDB] -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
+          rel="stylesheet"/>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet"/>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           rel="stylesheet"/>
 
     <link rel="stylesheet" href="css/declaracao.css">
@@ -34,79 +42,96 @@
 
             <form>
                 <!-- [Formulário do Remetente] -->
-                <h4>Remetente</h4>
+                <h1>Remetente</h1>
                 <div class="row">
                     <div class="col-md-5 mb-4">
                         <div class="form-outline">
-                            <input type="text" id="doc" class="form-control bg-light" required/>
+                            <input type="text" name="cnpj" id="doc" placeholder="000.000.000-00"
+                                   class="form-control bg-light cpfcnpj" onfocusout="verificarCampo('inputCpfCnpj')"
+                                   onChange="handleChangeMask" data-mask="00.000.000/0000-00"
+                                   onblur="checkCnpj(this.value)" required/>
                             <label class="form-label" for="doc">CPF/CNPJ</label>
                         </div>
                     </div>
 
                     <div class="col-md-7 mb-4">
                         <div class="form-outline">
-                            <input type="text" id="remetente" class="form-control bg-light" required/>
+                            <input type="text" name="remetente" id="remetente" placeholder="O nome do remetente"
+                                   class="form-control bg-light" aria-describedby="validationTooltipUsernamePrepend"
+                                   required/>
                             <label class="form-label" for="remetente">Remetente</label>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="cep" class="form-control bg-light" maxlength="8" required/>
+                            <input type="text" name="cep" id="cep" placeholder="00000-000" class="form-control bg-light"
+                                   maxlength="8" required/>
                             <label class="form-label" for="cep">CEP</label>
                         </div>
                     </div>
 
-                    <div class="col-md-8 mb-4">
+                    <div class="col-md-8">
                         <div class="form-outline mb-4">
-                            <input type="text" id="endereco" class="form-control bg-light" required/>
+                            <input type="text" name="endereco" id="endereco" placeholder="Nome da rua ou avenida"
+                                   class="form-control bg-light" required/>
                             <label class="form-label" for="endereco">Endereço</label>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-3 mb-4">
+                    <div class="col-md-3">
                         <div class="form-outline mb-4">
-                            <input type="text" id="numero" class="form-control bg-light" required/>
+                            <input type="text" name="numero" id="numero" placeholder="n°" class="form-control bg-light"
+                                   required/>
                             <label class="form-label" for="numero">Numero</label>
                         </div>
                     </div>
 
-                    <div class="col-md-3 mb-4">
+                    <div class="col-md-3">
                         <div class="form-outline mb-4">
-                            <input type="text" id="complemento" class="form-control bg-light" required/>
+                            <input type="text" name="complemento" id="complemento" placeholder="ex: AP 2"
+                                   class="form-control bg-light"
+                                   required/>
                             <label class="form-label" for="complemento">Complemento</label>
                         </div>
                     </div>
 
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="cidade" class="form-control bg-light" required/>
+                            <input type="text" name="cidade" id="cidade" placeholder="ex: São Paulo"
+                                   class="form-control bg-light"
+                                   required/>
                             <label class="form-label" for="cidade">Cidade</label>
                         </div>
                     </div>
 
                     <div class="col-md-2 mb-4">
-                        <div class="form-outline mb-4">
-                            <input type="text" id="uf" class="form-control bg-light" required/>
+                        <div class="form-outline">
+                            <input type="text" name="uf" id="uf" placeholder="SP" maxlength="2"
+                                   class="form-control bg-light"
+                                   required/>
                             <label class="form-label" for="uf">Estado</label>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="contato" class="form-control bg-light" required/>
+                            <input type="text" name="contato" id="contato" placeholder="Digite o nome completo"
+                                   class="form-control bg-light" required/>
                             <label class="form-label" for="contato">Contato</label>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-4">
                         <div class="form-outline mb-4">
-                            <input type="tel" id="tel" class="form-control bg-light" required/>
-                            <label class="form-label" for="tel">Telefone/Celular</label>
+                            <input type="tel" name="telefone" id="telefone" placeholder="(xx) x-xxxx-xxxx"
+                                   class="form-control bg-light"
+                                   maxlength="15" onkeyup="handlePhone(event)" required/>
+                            <label class="form-label" for="telefone">Telefone/Celular</label>
                         </div>
                     </div>
 
@@ -121,79 +146,96 @@
             <hr>
 
             <form>
-                <h4>Destinatário</h4>
+                <h1>Destinatário</h1>
                 <!-- [Formulário do Destinatário] -->
                 <div class="row">
                     <div class="col-md-5 mb-4">
                         <div class="form-outline">
-                            <input type="text" id="doc1" class="form-control bg-light" required/>
+                            <input type="text" placeholder="000.000.000-0"
+                                   class="form-control cpfcnpj1 text-primary bg-light ls-mask-cpf ls-mask-cnpj cpfcnpj1"
+                                   id="doc1" onfocusout="verificarCampo('inputCpfCnpj')" data-mask="00.000.000/0000-00"
+                                   onblur="checkCnpj1(this.value)" onChange="handleChangeMask" required/>
                             <label class="form-label" for="doc1">CPF/CNPJ</label>
                         </div>
                     </div>
 
                     <div class="col-md-7 mb-4">
                         <div class="form-outline">
-                            <input type="text" id="destinatario" class="form-control bg-light" required/>
+                            <input type="text" name="destinatario" id="destinatario"
+                                   placeholder="O nome do Destinatário"
+                                   class="form-control bg-light" required/>
                             <label class="form-label" for="destinatario">Destinatário</label>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="cep1" class="form-control bg-light" required/>
+                            <input type="text" name="cep1" id="cep1" placeholder="00000-000"
+                                   class="form-control bg-light" onfocusout="verificarCampo('cep1')"
+                                   maxlength="8" required/>
                             <label class="form-label" for="cep1">CEP</label>
                         </div>
                     </div>
 
-                    <div class="col-md-8 mb-4">
+                    <div class="col-md-8">
                         <div class="form-outline mb-4">
-                            <input type="text" id="endereco2" class="form-control bg-light" required/>
+                            <input type="text" name="endereco2" id="endereco2" placeholder="Nome da rua ou avenida"
+                                   class="form-control bg-light" required/>
                             <label class="form-label" for="endereco2">Endereço</label>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-3 mb-4">
+                    <div class="col-md-3">
                         <div class="form-outline mb-4">
-                            <input type="text" id="numero2" class="form-control bg-light" required/>
+                            <input type="text" name="numero2" id="numero2" placeholder="n°"
+                                   class="form-control bg-light" required/>
                             <label class="form-label" for="numero2">Numero</label>
                         </div>
                     </div>
 
-                    <div class="col-md-3 mb-4">
+                    <div class="col-md-3">
                         <div class="form-outline mb-4">
-                            <input type="text" id="complemento2" class="form-control bg-light" required/>
+                            <input type="text" name="complemento2" id="complemento2" placeholder="ex: AP 2"
+                                   class="form-control bg-light"
+                                   required/>
                             <label class="form-label" for="complemento2">Complemento</label>
                         </div>
                     </div>
 
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-4">
                         <div class="form-outline mb-4">
-                            <input type="text" id="cidade2" class="form-control bg-light" required/>
+                            <input type="text" name="cidade2" id="cidade2" placeholder="ex: São Paulo"
+                                   class="form-control bg-light"
+                                   required/>
                             <label class="form-label" for="cidade2">Cidade</label>
                         </div>
                     </div>
 
-                    <div class="col-md-2 mb-4">
+                    <div class="col-md-2">
                         <div class="form-outline mb-4">
-                            <input type="text" id="uf2" class="form-control bg-light" required/>
+                            <input type="text" name="uf2" id="uf2" placeholder="SP" maxlength="2"
+                                   class="form-control bg-light"
+                                   required/>
                             <label class="form-label" for="uf2">Estado</label>
                         </div>
                     </div>
 
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-6">
                         <div class="form-outline mb-4">
-                            <input type="text" id="contato2" class="form-control bg-light" required/>
+                            <input type="text" name="contato2" id="contato2" placeholder="Digite o nome completo"
+                                   class="form-control bg-light" required/>
                             <label class="form-label" for="contato2">Contato</label>
                         </div>
                     </div>
 
-                    <div class="col-md-2 mb-4">
+                    <div class="col-md-6">
                         <div class="form-outline mb-4">
-                            <input type="tel" id="telefone2" class="form-control bg-light" maxlength="15" required/>
+                            <input type="tel" name="telefone2" id="telefone2" placeholder="(xx) x-xxxx-xxxx"
+                                   class="form-control bg-light" maxlength="15" required/>
                             <label class="form-label" for="telefone2">Telefone/Celular</label>
                         </div>
                     </div>
@@ -208,48 +250,108 @@
         </div>
 
         <!-- [Div do lado Direito] -->
-        <div class="col-md-6 mb-4 mb-md-0 text-center">
+        <div class="col-md-6 mb-4 mb-md-0">
 
             <form>
                 <div class="row">
-                    <h4>Conteúdo</h4>
+                    <h1>Conteúdo</h1>
                     <div class="col-md-6 mb-4">
                         <div class="form-outline">
-                            <input type="text" id="idProduct" class="form-control bg-light" required/>
+                            <input type="text" name="idProduct" id="idProduct" placeholder="Digite aqui..."
+                                   class="form-control bg-light" onfocusout="verificarCampo('inputNome')"
+                                   required/>
                             <label class="form-label" for="idProduct">ID do Produto</label>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-4">
                         <div class="form-outline">
-                            <input type="text" id="cCusto" class="form-control bg-light" required/>
+                            <input type="text" name="cCusto" id="cCusto" class="form-control bg-light" required/>
                             <label class="form-label" for="cCusto">Centro de custo</label>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-6">
                         <div class="form-outline mb-4">
-                            <input type="text" id="content" class="form-control bg-light" required/>
+                            <input type="text" name="content" id="content" class="form-control bg-light"
+                                   onfocusout="verificarCampo('inputNome')" disabled required/>
                             <label class="form-label" for="content">Conteúdo do pacote</label>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-6">
                         <div class="form-outline mb-4">
-                            <input type="text" id="quantity" class="form-control bg-light" required/>
+                            <input type="number" name="quantity" id="quantity" placeholder="Qual a quantidade..."
+                                   class="form-control bg-light" onfocusout="verificarCampo('inputNome')" required/>
                             <label class="form-label" for="quantity">Quantidade de itens enviados</label>
                         </div>
                     </div>
 
-                    <div class="col-md-12 mb-4">
+                    <div class="col-md-12">
                         <div class="form-outline mb-4">
-                            <input type="text" id="value" class="form-control bg-light" required/>
+                            <input type="text" name="value" id="value" placeholder="R$0,00"
+                                   class="form-control bg-light" onkeyup="atacado(this);" required="required"
+                                   disabled/>
                             <label class="form-label" for="value">Valor (R$)</label>
                         </div>
                     </div>
+
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-danger btn-block mb-4" name="botaoAdd" id="butao2">
+                            Adicionar conteúdo
+                        </button>
+                    </div>
                 </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr class="">
+                                    <th class="dd" scope="col">IDProduto</th>
+                                    <th class="dd" scope="col">CentroCusto</th>
+                                    <th class="dd" scope="col">Quantidade</th>
+                                    <th class="dd" scope="col">Conteúdo</th>
+                                    <th class="dd" scope="col">Valor</th>
+                                    <th class="dd" scope="col"></th>
+                                </tr>
+                                </thead>
+                                <tbody id="show">
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Botões -->
+                <div class="row g-2 my-0 bots">
+                    <div class="col-5">
+                        <div class="d-grid my-3">
+                            <button class="btn btn-outline-danger" type="reset"
+                                    name="botaoExcluir"
+                                    id="botaoExcluir">Limpar Formulário
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-7">
+                        <div class="d-grid my-3">
+                            <button class="btn btn-danger" type="submit" name="botaoEnviar"
+                                    id="botaoEnviar" data-dismiss="alertList"
+                                    onclick="msg().Enviar()">Gerar Declaração
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
             </form>
 
         </div>
@@ -271,10 +373,6 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
         crossorigin="anonymous"></script>
@@ -282,4 +380,642 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
         integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
         crossorigin="anonymous"></script>
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+<script src="https://code.jquery.com/qunit/qunit-2.19.3.js"
+        integrity="sha256-C3f02PmJZRJ0wvaPBTN1oztdkwQJJHeVj4UR5HrG8J4=" crossorigin="anonymous"></script>
+<!--[Telefone Remetente]-->
+<script>
+    const handlePhone = (event) => {
+        let input = event.target
+        input.value = phoneMask(input.value)
+    }
+
+    const phoneMask = (value) => {
+        if (!value) return ""
+        value = value.replace(/\D/g, '') //Remove tudo o que não é dígito
+        value = value.replace(/(\d{2})(\d)/, "($1) $2") //Coloca parênteses em volta dos dois primeiros dígitos
+        value = value.replace(/(\d)(\d{4})$/, "$1-$2") //Coloca hífen entre o quarto e o quinto dígitos
+        return value
+    }
+</script>
+
+<!--[Telefone Destinatário]-->
+<script>
+    function mascara(o, f) {
+        v_obj = o;
+        v_fun = f;
+        setTimeout("execmascara()", 1);
+    }
+
+    function execmascara() {
+        v_obj.value = v_fun(v_obj.value);
+    }
+
+    function mtel(v) {
+        v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
+        v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+        v = v.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+        return v;
+    }
+
+    function id(el) {
+        return document.getElementById(el);
+    }
+
+    window.onload = function () {
+        id("telefone2").onkeyup = function () {
+            mascara(this, mtel);
+        };
+    };
+</script>
+
+<!-- [Script de validação dos CNPJ's Tamanho]-->
+<script>
+    function checkCnpj(cnpj) {
+
+        // ## EXEMPLO 1
+        // Aciona a validação a cada tecla pressionada
+        let temporizador = false;
+        $('cnpj').keypress(function () {
+
+            // O input que estamos utilizando
+            let input = $(this);
+
+            // Limpa o timeout antigo
+            if (temporizador) {
+                clearTimeout(temporizador);
+            }
+
+            // Cria um timeout novo de 500ms
+            temporizador = setTimeout(function () {
+                // Remove as classes de válido e inválido
+                input.removeClass('valido');
+                input.removeClass('invalido');
+
+                // O CPF ou CNPJ
+                let cpf_cnpj = input.val();
+
+                // Valida
+                let valida = valida_cpf_cnpj(cpf_cnpj);
+
+                // Testa a validação
+                if (valida) {
+                    input.addClass('valido');
+                } else {
+                    input.addClass('invalido');
+                }
+            }, 500);
+
+        });
+    }
+</script>
+
+<!-- [Consulta CNPJ Remetente] -->
+<script>
+    function checkCnpj(cnpj) {
+        $.ajax({
+            'url': 'https://www.receitaws.com.br/v1/cnpj/' + cnpj.replace(/[^0-9]/g, ""),
+            'type': "GET",
+            'dataType': 'jsonp',
+            'success': function (data) {
+
+                /**
+                 * Verifica CPF
+                 */
+                if (data.length == 11) {
+
+                    alert('CPF Válido')
+
+                }
+
+                // Verifica CNPJ
+                else if (data.length == 14) {
+
+                    alert('Se os campos for preenchidos aom apenas o CNPJ, então ele é válido pela receita federal')
+                }
+
+                if (data.nome == undefined) {
+                    // alert(data.status + ' ' + data.message)
+                } else {
+                    document.getElementById('remetente').value = data.nome;
+                    document.getElementById('numero').value = data.numero;
+                    document.getElementById('endereco').value = data.logradouro;
+                    document.getElementById('cidade').value = data.municipio;
+                    document.getElementById('uf').value = data.uf;
+                    document.getElementById('cep').value = data.cep;
+                    document.getElementById('complemento').value = data.complemento;
+                }
+                console.log(data);
+            }
+        })
+    }
+</script>
+
+<!-- [Define o CPF se não for CNPJ -  Remetente] -->
+<script>
+    $(function () {
+        $('#cnpj').blur(function () {
+
+            // O CPF ou CNPJ
+            let cnpj = $(this).val();
+
+            // Testa a validação e formata se estiver OK
+            if (formata_cpf_cnpj(cnpj)) {
+                $(this).val(formata_cpf_cnpj(cnpj));
+            } else {
+
+            }
+
+        });
+
+    });
+</script>
+
+<script>
+    $('#cnpj').mask('000.000.000-00', {
+        onKeyPress: function (cnpj, e, field, options) {
+            const masks = ['000.000.000-000', '00.000.000/0000-00'];
+            const mask = (cnpj.length > 14) ? masks[1] : masks[0];
+            $('#cnpj').mask(mask, options);
+        }
+    });
+</script>
+
+<!--[Script que Define CPF e CNPJ "NÃO APAGAR ESTE!" Remetente]-->
+<script>
+    var x = document.getElementsByClassName("cpfcnpj");
+    for (i = 0; i < x.length; i++) {
+        x[i].addEventListener('focus', function (e) {
+            document.getElementById(e.target.id).select();
+        });
+    }
+    for (var i = 0; i < x.length; i++) {
+        x[i].addEventListener('keyup', myFunction, false);
+    }
+
+    function myFunction(e) {
+        x = '';
+        if (e.keyCode == 8 || e.keyCode == 46) {
+            return false;
+        }
+        if (e.keyCode >= 48 || e.keyCode <= 57) {
+
+            var id = e.target.id;
+            document.getElementById(id).setAttribute('maxlength', 18);
+            var str = e.target.value.replace(/\D/g, '');
+            //var str = str.replace(/^0+/, '');
+            var len = str.length; //
+            if (len == 11) {
+                x = str.substr(0, 3) + '.' + str.substr(3, 3) + '.' + str.substr(6, 3) + '-' + str.substr(9, 2);
+                ; // 510.791.784-49
+            } else if (len > 11 && len < 15) {
+                x = str.substr(0, 2) + '.' + str.substr(2, 3) + '.' + str.substr(5, 3) + '/' + str.substr(8, 4) + '-' + str.substr(12, 2);  // 04.498.492/0001-67
+            } else {
+                x = str;
+            }
+            document.getElementById(id).value = x;
+        }
+    }
+</script>
+
+<!-- [Consulta CNPJ Destinatário] -->
+<script>
+    function checkCnpj1(cpfcnpj1) {
+        $.ajax({
+            'url': 'https://www.receitaws.com.br/v1/cnpj/' + cpfcnpj1.replace(/[^0-9]/g, ''),
+            'type': "GET",
+            'dataType': 'jsonp',
+            'success': function (data) {
+                if (data.nome == undefined) {
+
+                } else {
+                    document.getElementById('destinatario').value = data.nome;
+                    document.getElementById('numero2').value = data.numero;
+                    document.getElementById('endereco2').value = data.logradouro;
+                    document.getElementById('cidade2').value = data.municipio;
+                    document.getElementById('uf2').value = data.uf;
+                    document.getElementById('cep1').value = data.cep;
+                    document.getElementById('complemento2').value = data.complemento;
+                }
+                console.log(data);
+            }
+        })
+    }
+</script>
+
+<!-- [Define o CPF se não for CNPJ -  Destinatário] -->
+<script>
+    $(function () {
+        $('#cnpj2').blur(function () {
+
+            // O CPF ou CNPJ
+            let cnpj = $(this).val();
+
+            // Testa a validação e formata se estiver OK
+            if (formata_cpf_cnpj(cnpj)) {
+                $(this).val(formata_cpf_cnpj(cnpj));
+            } else {
+
+            }
+
+        });
+
+    });
+</script>
+
+<!-- [Script CPF/CNPJ (REMETENTE)] -->
+<script>
+    $("#cnpj").keydown(function () {
+        try {
+            $("#cnpj").unmask();
+        } catch (e) {
+        }
+
+        let tamanho = $("#cnpj").val().length;
+
+        if (tamanho < 11) {
+            $("#cpf").mask("999.999.999-99");
+        } else {
+            $("#cnpj").mask("99.999.999/9999-99");
+        }
+
+        // ajustando foco
+        let elem = this;
+        setTimeout(function () {
+            // mudo a posição do seletor
+            elem.selectionStart = elem.selectionEnd = 10000;
+        }, 0);
+        // reaplico o valor para mudar o foco
+        let currentValue = $(this).val();
+        $(this).val('');
+        $(this).val(currentValue);
+    });
+</script>
+
+<!-- [Script CPF/CNPJ (DESTINATÁRIO)] -->
+<script>
+    $("#cnpj2").keydown(function () {
+        try {
+            $("#cnpj2").unmask();
+        } catch (e) {
+        }
+
+        let tamanho = $("#cnpj2").val().length;
+
+        if (tamanho < 11) {
+            $("#cnpj2").mask("999.999.999-99");
+        } else {
+            $("#cnpj2").mask("99.999.999/9999-99");
+        }
+
+        // ajustando foco
+        let elem = this;
+        setTimeout(function () {
+            // mudo a posição do seletor
+            elem.selectionStart = elem.selectionEnd = 10000;
+        }, 0);
+        // reaplico o valor para mudar o foco
+        let currentValue = $(this).val();
+        $(this).val('');
+        $(this).val(currentValue);
+    });
+</script>
+
+<!--[Script que Define CPF e CNPJ "NÃO APAGAR ESTE!" Destinatário]-->
+<script>
+    let x = document.getElementsByClassName("cpfcnpj1");
+    for (i = 0; i < x.length; i++) {
+        x[i].addEventListener('focus', function (e) {
+            document.getElementById(e.target.id).select();
+        });
+    }
+    for (let i = 0; i < x.length; i++) {
+        x[i].addEventListener('keyup', myFunction, false);
+    }
+
+    function myFunction(e) {
+        x = '';
+        if (e.keyCode == 8 || e.keyCode == 46) {
+            return false;
+        }
+        if (e.keyCode >= 48 || e.keyCode <= 57) {
+
+            let id = e.target.id;
+            document.getElementById(id).setAttribute('maxlength', 18);
+            let str = e.target.value.replace(/\D/g, '');
+            //var str = str.replace(/^0+/, '');
+            let len = str.length; //
+            if (len == 11) {
+                x = str.substr(0, 3) + '.' + str.substr(3, 3) + '.' + str.substr(6, 3) + '-' + str.substr(9, 2);
+                ; // 510.791.784-49
+            } else if (len > 11 && len < 15) {
+                x = str.substr(0, 2) + '.' + str.substr(2, 3) + '.' + str.substr(5, 3) + '/' + str.substr(8, 4) + '-' + str.substr(12, 2);  // 04.498.492/0001-67
+            } else {
+                x = str;
+            }
+            document.getElementById(id).value = x;
+        }
+    }
+</script>
+
+<!--[Script de Validação do CEP, completa os campos do endereço com ele]-->
+<script>
+    $("#cep").blur(function () {
+        // Remove tudo o que não é número para fazer a pesquisa
+        let cep = this.value.replace(/[^0-9]/, "");
+        // Validação do CEP; caso o CEP não possua 8 números, então cancela
+        // a consulta
+        if (cep.length != 8) {
+            return false;
+        }
+        // A url de pesquisa consiste no endereço do webservice + o cep que
+        // o usuário informou + o tipo de retorno desejado (entre "json",
+        // "jsonp", "xml", "piped" ou "querty")
+        let url = "https://viacep.com.br/ws/" + cep + "/json/";
+        // Faz a pesquisa do CEP, tratando o retorno com try/catch para que
+        // caso ocorra algum erro (o cep pode não existir, por exemplo) a
+        // usabilidade não seja afetada, assim o usuário pode continuar//
+        // preenchendo os campos normalmente
+        $.getJSON(url, function (dadosRetorno) {
+            try {
+                // Preenche os campos de acordo com o retorno da pesquisa
+                $("#endereco").val(dadosRetorno.logradouro);
+                $("#cidade").val(dadosRetorno.localidade);
+                $("#uf").val(dadosRetorno.uf);
+            } catch (ex) {
+            }
+        });
+    });
+    $("#cep1").blur(function () {
+        // Remove tudo o que não é número para fazer a pesquisa
+        let cep2 = this.value.replace(/[^0-9]/, "");
+        // Validação do CEP; caso o CEP não possua 8 números, então cancela
+        // a consulta
+        if (cep2.length != 8) {
+            return false;
+        }
+        // A url de pesquisa consiste no endereço do webservice + o cep que
+        // o usuário informou + o tipo de retorno desejado (entre "json",
+        // "jsonp", "xml", "piped" ou "querty")
+        let url = "https://viacep.com.br/ws/" + cep2 + "/json/";
+        // Faz a pesquisa do CEP, tratando o retorno com try/catch para que
+        // caso ocorra algum erro (o cep pode não existir, por exemplo) a
+        // usabilidade não seja afetada, assim o usuário pode continuar//
+        // preenchendo os campos normalmente
+        $.getJSON(url, function (dadosRetorno) {
+            try {
+                // Preenche os campos de acordo com o retorno da pesquisa
+                $("#endereco2").val(dadosRetorno.logradouro);
+                $("#cidade2").val(dadosRetorno.localidade);
+                $("#uf2").val(dadosRetorno.uf);
+            } catch (ex) {
+            }
+        });
+    });
+</script>
+
+<!-- [Script para Validar Formato do CEP] -->
+<script>
+    $(document).ready(function () {
+        let $campo = $("#cep");
+        $campo.mask('00.000-000', {reverse: true});
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        let $campo = $("#cep1");
+        $campo.mask('00.000-000', {reverse: true});
+    });
+</script>
+
+<!-- [Script do Conteúdo e Tabela]-->
+<script>
+    contentItems = []
+    $('#butao2').click(function (e) {
+        e.preventDefault()
+        let item = {
+            'id_product': $('#idProduct').val(),
+            'cost_center': $('#cCusto').val(),
+            'content': $('#content').val(),
+            'quantity': $('#quantity').val(),
+            'value': $('#value').val(),
+        }
+        contentItems.push(item)
+        resetForm(contentItems)
+    });
+
+    function resetForm(items) {
+        $(".row-input").remove()
+        let show2 = "";
+        let cont = 0;
+        items.forEach(function (e) {
+            let form = $('form[name="formGeral"]');
+            let inputProduct = $("<input>").attr("name", "content_items\[" + cont + "\]\[id_product\]").attr("type", "hidden").attr("class", "row-input").val(e['id_product'])
+            let inputCostCenter = $("<input>").attr("name", "content_items\[" + cont + "\]\[cost_center\]").attr("type", "hidden").attr("class", "row-input").val(e['cost_center'])
+            let inputContent = $("<input>").attr("name", "content_items\[" + cont + "\]\[content\]").attr("type", "hidden").attr("class", "row-input").val(e['content'])
+            let inputQuantity = $("<input>").attr("name", "content_items\[" + cont + "\]\[quantity\]").attr("type", "hidden").attr("class", "row-input").val(e['quantity'])
+            let inputValue = $("<input>").attr("name", "content_items\[" + cont + "\]\[value\]").attr("type", "hidden").attr("class", "row-input").val(e['value'])
+            form.append(inputProduct)
+            form.append(inputCostCenter)
+            form.append(inputContent)
+            form.append(inputQuantity)
+            form.append(inputValue)
+            show2 += `
+      <div class="">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr class="align-bottom row-product-${cont}">
+                            <td class="dd">${e['id_product']}</td>
+                            <td class="dd">${e['cost_center']}</td>
+                            <td class="dd">${e['content']}</td>
+                            <td class="dd">${e['quantity']}</td>
+                            <td class="dd">${e['value']}</td>
+                            <td><a class="" onclick="removerElemento(${cont})">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                </svg></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+          `
+            cont++;
+        })
+        $('#show').html(show2);
+    }
+
+    function removerElemento(elementoClicado) {
+        $(".row-product-" + elementoClicado + "").remove()
+        contentItems.splice(elementoClicado, 1)
+        resetForm(contentItems)
+    }
+</script>
+
+<!--[Script do PDF]-->
+<script>
+    $(function Enviar() {
+        $('form[name="formGeral"]').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: "{{route('dashboard.Conteudo')}}",
+                type: "POST",
+                data: $(this).serialize(),
+                success: function (data) {
+                    console.log("Dados inseridos com sucesso!");
+                    funcao_pdf(data.declaracao)
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        })
+    })
+
+    function formatKeyUP() {
+        axios.get("http://localhost:8000/api/dashboard/products/" + elementoClicado)
+            .then((response) => {
+                if (response.data.length === 1) {
+                    elementoClicado.value = response.data[0].valor + ",00";
+                    elementoClicado.content = response.data[0].conteudo;
+                    //console.log(response.data[0].valor);
+                } else {
+                    elementoClicado.value = "Id não encontrado";
+                    elementoClicado.content = "Id não encontrado";
+                }
+            });
+    }
+</script>
+
+<!-- [Script para validar os campos] -->
+<script>
+    (function alertList() {
+        'use strict'
+        const forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+
+<!-- [Script Valor Dinheiro] -->
+<script>
+    function atacado(i) {
+        let decimais = 2;
+        let separador_milhar = '.';
+        let separador_decimal = ',';
+
+        let decimais_ele = Math.pow(10, decimais);
+        let thousand_separator = '$1' + separador_milhar;
+        let v = i.value.replace(/\D/g, '');
+        v = (v / decimais_ele).toFixed(decimais) + '';
+        let splits = v.split(".");
+        let p_parte = splits[0].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, thousand_separator);
+        (typeof splits[1] === "undefined") ? i.value = p_parte : i.value = p_parte + separador_decimal + splits[1];
+
+    }
+</script>
+
+<!-- [Script para alerta ADC] -->
+<script>
+    function msg() {
+        alert("Gerando PDF do conteúdo aguarde por favor!");
+    }
+</script>
+
+<!-- [Script do ID Produto] -->
+<script>
+    $(function () {
+        $('#idProduct').autocomplete({
+            source: function (request, response) {
+                console.log(request.term)
+                $.getJSON("{{url('/dashboard/products')}}?term=" + request.term, function (data) {
+                    let array = $.map(data, function (row) {
+                        return {
+                            value: row.id_product,
+                            label: row.content,
+                            content: row.content,
+                            sales_price: row.value
+                        }
+                    })
+
+                    response($.ui.autocomplete.filter(array, request.term));
+
+
+                })
+            },
+            minLength: 1,
+            delay: 60,
+            select: function (event, ui) {
+                $('#content').val(ui.item.content)
+                $('#value').val(ui.item.sales_price)
+            }
+        })
+    })
+
+    $(function () {
+        $("input[name='idProduct']").blur(function () {
+            console.log("oi")
+            let id_product = $(this).val();
+            let content = $('#content');
+            let value = $('#value');
+
+            $.getJSON("{{url('/dashboard/TesteInput')}}", {id_product},
+                function (retorno) {
+                    $('#content').val(retorno.content);
+                    $('#value').val(retorno.value);
+                    // console.log($array_values);
+                }
+            );
+
+        })
+
+    });
+</script>
+
 </html>
